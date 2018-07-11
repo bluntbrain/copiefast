@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+
+    {% if title %}
+        <title>Copiefast - {{ title }}</title>
+    {% else %}
+        <title>Copiefast</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container">
+           <a  href="/"><img class="logo" src="./static/profile_pics/logo.png"></a>
+          <!-- <a class="navbar-brand mr-4" href="/">Flask Blog</a> -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('resources') }}">Resources</a>
+              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              {% if current_user.is_authenticated %}
+                <a class="nav-item nav-link" href="{{ url_for('new_post') }}">New Post</a>
+                <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Club Updates!</h3>
+            <p class='text-muted'>
+               <img src="/static/profile_pics/nirmalogo.jpg" alt="logo" height="120" width="120" align="right">
+              <ol class="list-group">
+                <li class="list-group-item list-group-item-light" ><a href="/RCNI">RCNI</a></li>
+                <li class="list-group-item list-group-item-light" ><a href="/ISTE">ISTE</a></li>
+                <li class="list-group-item list-group-item-light" ><a href="/MESA">MESA</a></li>
+                <li class="list-group-item list-group-item-light" ><a href="/CHESA">CHESA</a></li>
+                <li class="list-group-item list-group-item-light" ><a href="/EESA">EESA</a></li>
+                <li class="list-group-item list-group-item-light" ><a href="/ECO">ECO</a></li>
+                <li class="list-group-item list-group-item-light" ><a href="/IL2">IL2</a></li>
+                <li class="list-group-item list-group-item-light" ><a href="/CSI">CSI</a></li>
+                <li class="list-group-item list-group-item-light" ><a href="/ORCES">ORCES</a></li>
+                <li class="list-group-item list-group-item-light" ><a href="/NuTECH">Nu-TECH</a></li>
+
+              </ol>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer align="right" class="footer">
+      <div class="container">
+        <a href="https://github.com/bluntbrain">Github | </a>
+        <a href="https://www.linkedin.com/in/ishanl/">Linkedin | </a>
+        <a href="https://www.facebook.com/ishan.lakhwani.3">Facebook</a>
+      </div>
+     <div class="container">
+       <span class="text-muted">All rights reserved @ Copiefast. Made with love by Ishan Lakhwani</span>
+     </div>
+   </footer>
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
