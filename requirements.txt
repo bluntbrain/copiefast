@@ -22,8 +22,6 @@ jupyter-console==5.2.0
 jupyter-core==4.4.0
 keyring==7.3
 launchpadlib==1.10.3
-lazr.restfulclient==0.13.4
-lazr.uri==1.0.3
 linecache2==1.0.0
 lxml==3.5.0
 lz4==0.7.0
@@ -45,8 +43,6 @@ numpy==1.11.0
 oauth==1.0.1
 osrf-pycommon==0.1.5
 PAM==0.4.2
-pandocfilters==1.4.2
-paramiko==1.16.0
 pathlib2==2.3.2
 pexpect==4.6.0
 pickleshare==0.7.4
@@ -55,8 +51,6 @@ pipenv==2018.7.1
 prompt-toolkit==1.0.15
 psutil==3.4.2
 ptyprocess==0.5.2
-pyasn1==0.1.9
-pyasn1-modules==0.0.7
 pycparser==2.18
 pycrypto==2.6.1
 pydot==1.0.29
