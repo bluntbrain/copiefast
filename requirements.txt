@@ -41,11 +41,8 @@ psutil==3.4.2
 ptyprocess==0.5.2
 pycparser==2.18
 pycrypto==2.6.1
-pydot==1.0.29
 pymongo==3.7.0
 pyserial==3.0.1
-Pyste==0.9.10
-python-dateutil==2.4.2
 python-snappy==0.5
 SQLAlchemy==1.2.8
 WTForms==2.2.1
