@@ -40,7 +40,6 @@ prompt-toolkit==1.0.15
 psutil==3.4.2
 ptyprocess==0.5.2
 pycparser==2.18
-pycrypto==2.6.1
 pymongo==3.7.0
 pyserial==3.0.1
 SQLAlchemy==1.2.8
